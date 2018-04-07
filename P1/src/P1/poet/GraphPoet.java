@@ -1,7 +1,7 @@
 /* Copyright (c) 2015-2016 MIT 6.005 course staff, all rights reserved.
  * Redistribution of original or derived work requires permission of course staff.
  */
-package poet;
+package P1.poet;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,8 +51,7 @@ import graph.Graph;
  * class is up to you.
  */
 public class GraphPoet {
-    
-    private final Graph<String> graph = Graph.empty();
+	private final Graph<String> graph = Graph.empty();
     
     // Abstraction function:
     //   TODO

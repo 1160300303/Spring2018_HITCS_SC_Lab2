@@ -1,7 +1,7 @@
 /* Copyright (c) 2015-2016 MIT 6.005 course staff, all rights reserved.
  * Redistribution of original or derived work requires permission of course staff.
  */
-package graph;
+package P1.graph;
 
 import java.util.Map;
 import java.util.Set;
@@ -18,6 +18,13 @@ import java.util.Set;
  * @param <L> type of vertex labels in this graph, must be immutable
  */
 public interface Graph<L> {
+	static final int MaxSize = 20;         //图的最大顶点数
+	static final int INFINITE = 65535;    //最大值
+	class GraphMaterix{
+		int GType;      //图的类型（0:无向图  1：有向图）
+		int VertexNum[] = new int[MaxSize];        //顶点集合
+		static int EdgeWeight[][] = new int [MaxSize][MaxSize];   // 边集合
+	
     
     /**
      * Create an empty graph.
@@ -25,18 +32,39 @@ public interface Graph<L> {
      * @param <L> type of vertex labels in the graph, must be immutable
      * @return a new empty weighted directed graph
      */
+
     public static <L> Graph<L> empty() {
-        throw new RuntimeException("not implemented");
+        /*throw new RuntimeException("not implemented");*/
+    	int i,j;
+    	
+        for (i = 0; i < MaxSize; i++) {
+            for (j = 0; j < MaxSize; j++) {
+                if (i == j) {
+                	EdgeWeight[i][j] = 0;
+                }
+                else {
+                    EdgeWeight[i][j] = INFINITE;
+                }
+            }
+        }
+		return null;
+    
     }
     
     /**
      * Add a vertex to this graph.
      * 
-     * @param vertex label for the new vertex
-     * @return true if this graph did not already include a vertex with the
-     *         given label; otherwise false (and this graph is not modified)
+     * @param vertex label for the new vertex 标记为新的顶点
+     * @return true if this graph did not already include a vertex with the 
+     * given label; otherwise false (and this graph is not modified)
+     *如果这个图没有包含一个顶点，则返回true。
+     *给定的标签；否则为false（此图未被修改）
      */
+    
     public boolean add(L vertex);
+    {
+    	
+    }
     
     /**
      * Add, change, or remove a weighted directed edge in this graph.
